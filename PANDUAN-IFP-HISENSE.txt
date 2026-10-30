@@ -1,0 +1,90 @@
+PETUALANGAN ANGKA V3 — PUKUL JAWABAN
+Untuk Google Chrome dan kamera bawaan IFP Hisense
+
+MULAI DI IFP
+1. Ekstrak SELURUH ZIP ke satu folder. Jangan membuka game dari dalam ZIP.
+2. Buka index.html di Chrome dan tekan Mulai Petualangan.
+3. Izinkan kamera. Pada IFP Android, izinkan juga kamera untuk aplikasi Chrome
+   melalui pengaturan perangkat jika diminta.
+4. Pastikan gambar kamera terlihat dan status menunjukkan "sensor siap".
+   Kursor lingkaran bertuliskan TELAPAK harus mengikuti pusat telapak.
+5. Jika gambar terlihat tetapi tangan belum terbaca, pilih Mode sensor:
+   Kompatibel (CPU). Mode ini menjadi pilihan awal pada browser Android.
+6. Uji tiga pukulan di udara: ayun telapak ke target, tarik keluar, ayun lagi.
+   Hitungan harus berubah 0 → 1 → 2 → 3. Tangan diam tidak dihitung.
+   Pukulan maju juga bisa terbaca dari pembesaran telapak; tarik kembali
+   sebelum mendorong lagi. Jangan menyentuh atau memukul layar IFP.
+7. Tekan "Mulai Bermain • Layar Penuh" setelah izin kamera selesai.
+8. Dalam permainan, pukul pilihan jawaban 3 kali. Bar dan angka menunjukkan
+   pukulan yang masuk. Tiga pukulan pada pilihan salah tetap dihitung sebagai
+   jawaban salah. Klik/sentuh dan keyboard tetap menjadi kontrol alternatif.
+
+JIKA GAMBAR ADA TETAPI GERAKAN TIDAK TERBACA
+- "Model belum siap": tunggu pemuatan awal; pilih Kompatibel (CPU).
+- Pastikan folder aset utuh, termasuk file sensor berukuran besar.
+- "Sensor siap • 0 tangan": tampilkan seluruh telapak, dekatkan tangan jika
+  terlalu kecil dalam gambar, perbaiki pencahayaan, hindari cahaya dari belakang.
+- Kursor sudah mengikuti tangan tetapi tidak ada pukulan: tarik telapak
+  sepenuhnya keluar dari kotak sebelum mengayunkan kembali; lakukan gerakan
+  yang jelas. Menahan telapak di target bukan pukulan.
+- Untuk memulai pengujian ulang dari nol, kembali ke menu lalu mulai lagi.
+- Tombol Hubungkan Kamera dapat membuka ulang kamera jika aliran video macet.
+- Tutup aplikasi lain yang memakai kamera bawaan.
+- Kamera bawaan harus memang dapat diakses oleh Chrome melalui sistem IFP.
+  Jika Chrome tidak diberi akses oleh sistem, pengaturan game saja tidak dapat
+  menggantikan dukungan atau izin kamera perangkat.
+
+FILE LOKAL DAN INTERNET
+V3 menyertakan pemuat sensor lokal khusus. Di Chrome desktop, model dan
+mesin sensor berhasil dimuat dari index.html (file://) tanpa internet.
+Versi ini tidak perlu mengunduh model dari CDN ketika bermain.
+Izin kamera dan pembatasan Chrome/sistem IFP tetap berlaku. Jika pengelola
+file IFP membuka game sebagai content:// atau penampil HTML terbatas sehingga
+kamera/skrip lokal diblokir, buka seluruh paket melalui hosting HTTPS di Chrome.
+HTTP biasa melalui alamat IP jaringan bukan pengganti HTTPS untuk izin kamera.
+Paket juga mendukung HTTPS/localhost dengan berkas sensor lokal yang sama.
+
+FULLSCREEN
+Game tidak memanggil keluar fullscreen ketika membuka kamera.
+Video menggunakan mode inline, bukan pemutar video layar penuh terpisah.
+Urutan yang dianjurkan: izinkan kamera dahulu, kemudian tekan Mulai Bermain.
+Jika Chrome/sistem mengakhiri fullscreen saat menampilkan dialog izin atau
+pengguna menekan Esc, muncul tombol "Kembali ke Layar Penuh". Tekan sekali.
+Browser dapat mensyaratkan ketukan pengguna untuk masuk kembali; aplikasi
+tidak dapat menjamin dialog sistem selalu mempertahankan fullscreen.
+
+PERUBAHAN V3
+- Kontrol telunjuk/cubit/menahan target diganti gerakan pukulan telapak.
+- Tiga pukulan terpisah untuk setiap jawaban.
+- Indikator tangan berada di atas panel dan dirender setelah deteksi terbaru.
+- Masa berlaku hasil deteksi menyesuaikan waktu pemrosesan perangkat.
+- Latihan menampilkan jumlah tangan dan hitungan pukulan; klik target uji
+  tidak disamarkan sebagai keberhasilan sensor kamera.
+- Background dan karakter tengah tetap hilang saat kalibrasi/permainan.
+- Semua kelas tetap mudah: satu operasi tanpa menyimpan/meminjam atau
+  operasi campuran; K1 0–5, K2 0–20, K3 0–50, K4 0–100, K5 0–200, K6 0–500.
+- Aset, kode, dan gambar tetap berada dalam folder aset.
+
+HASIL PENGUJIAN
+Chrome desktop, tanpa akses internet:
+- Pemuatan file HTML lokal dan model pada GPU maupun CPU berhasil.
+- Kamera simulasi aktif; dua tangan dari gambar uji resmi dikenali,
+  masing-masing dengan 21 titik.
+- Indikator telapak terlihat di atas panel uji.
+- Masukan gerakan landmark simulasi menghasilkan latihan 1–2–3.
+- Jawaban permainan dipilih tepat setelah pukulan ketiga.
+- Tangan diam, jitter di tepi, dan tangan hilang tidak menambah pukulan.
+- Gerakan dorong-tarik, lintasan cepat, dan jeda sensor 400 ms diuji.
+- Fullscreen tetap aktif saat kamera dibuka dalam lingkungan uji.
+- Tombol pemulihan fullscreen bekerja setelah fullscreen diakhiri.
+- Arena layar 3840×2160 menggunakan target besar dan tanpa background anime.
+Perangkat IFP Hisense dan kamera bawaan pengguna belum diuji secara fisik.
+Lakukan Target Uji pada IFP sebelum dipakai di kelas.
+
+RUJUKAN
+MediaPipe:
+https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker/web_js
+Kamera browser:
+https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+Fullscreen dan kebutuhan interaksi pengguna:
+https://developer.mozilla.org/en-US/docs/Web/API/Element/requestFullscreen
